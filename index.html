@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>New York Times</title>
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Diplomata+SC|Kaushan+Script|Taviraj" rel="stylesheet">
+</head>
+<body>
+
+    <div class="jumbotron text-center">
+        <h2>New York Times Article Scrubber</h2>
+        <h6>Search for and annotate articles of interest</h6>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h6><span aria-hidden="true" class="glyphicon glyphicon-list"></span> Search Parameters</h6>
+                    </div>
+                    <div id="panelA" class="panel-body">
+                        <label><b>Topic</b></label>
+                        <input class="form-control" id="topic" type="text">
+                        <label><b>Start Year</b></label>
+                        <input class="form-control" id="start_year" type="text">
+                        <label><b>End Year</b></label>
+                        <input class="form-control" id="end_year" type="text">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-default btn-lg" id="search" type="button"><span aria-hidden="true" class="glyphicon glyphicon-search"></span> Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h6><span aria-hidden="true" class="glyphicon glyphicon-paperclip"></span> Results</h6>
+                    </div>
+                    <div id="panelB" class="panel-body">
+                        <div id="results"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h6><span aria-hidden="true" class="glyphicon glyphicon-floppy-save"></span> Saved Articles</h6>
+                    </div>
+                    <div id="panelC" class="panel-body">
+                        <div id="saved_articles"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!--Not needed at the moment however will incorporate at a late time-->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h5><span aria-hidden="true" class="glyphicon glyphicon-list"></span> New York Times Article Scrubber</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 text-left">
+                <h6>News</h6>
+                <a data-toggle="modal" data-target="#myModal"href="#">World</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">U.S.</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Politics</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">N.Y.</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Business</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Tech</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Science</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Health</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Sports</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Education</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Obituaries</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Today's Paper</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Corrections</a><br>
+            </div>
+            <div class="col-sm-2 text-left">
+                <h6>Opinion</h6>
+                <a data-toggle="modal" data-target="#myModal"href="#">Today's Opinion</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Op-Ed Columnists</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Editorials</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Contributing Writers</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Op-Ed Contributors</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Opinionator</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Sunday Review</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Taking Note</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Room for Debate</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Public Editor</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Video: Opinion</a><br>
+            </div>
+            <div class="col-sm-2 text-left">
+                <h6>Arts</h6>
+                <a data-toggle="modal" data-target="#myModal"href="#">Today's Arts</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Art & Design</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Books</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Dance</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Movies</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Music</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">N.Y.C. Events Guide</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Theater</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Video: Arts</a><br>
+            </div>
+            <div class="col-sm-2 text-left">
+                <h6>Living</h6>
+                <a data-toggle="modal" data-target="#myModal"href="#">Automobiles</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Crossword</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Food</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Education</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Fashion & Style</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Health</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Jobs</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Magazine</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">N.Y.C. Events Guide</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Real Estate</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">T Magazine</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Travel</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Weddings & Celebrations</a><br>
+            </div>
+            <div class="col-sm-2 text-left">
+                <h6>Listings & More</h6>
+                <a data-toggle="modal" data-target="#myModal"href="#">Classifieds</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Tools & Services</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Times Topics</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Public Editor</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">N.Y.C. Events Guide</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Blogs</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Multimedia</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Photography</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Video</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">NYT Store</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Times Journeys</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Subscribe</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Manage My Account</a><br>
+            </div>
+            <div class="col-sm-2 text-left">
+                <h6>Subscribe</h6>
+                <a data-toggle="modal" data-target="#myModal"href="#"><span aria-hidden="true" class="glyphicon glyphicon-globe"></span> Home Delivery</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#"><span aria-hidden="true" class="glyphicon glyphicon-phone"></span> Digital Services</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#"><span aria-hidden="true" class="glyphicon glyphicon-list"></span> Times Subscriptions</a><br><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Crossword</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Email News Letters</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Alerts</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Gift Subscriptions</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Corporate Subscriptions</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Education Rate</a><br>
+                <br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Mobile Applications</a><br>
+                <a data-toggle="modal" data-target="#myModal"href="#">Replica Edition</a><br>
+            </div>
+
+        </div>
+    </div>
+    <!--Not needed at the moment however will incorporate at a late time-->
+
+    <!--Shits & Giggles Modal-->
+    <div class="container">
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Dear John,</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>These links are absolutely useless. One day they will take you somewhere worthwhile my friend.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!--Shits & Giggles Modal-->
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+
