@@ -19,3 +19,16 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 app.use(express.static('./public'));
+
+
+// MongoDB Configuration
+mongoose.connect('mongodb://admin:reactrocks@ds023593.mlab.com:23593/heroku_pg676kmk');
+var db = mongoose.connection;
+
+db.on('error', function (err) {
+    console.log('Mongoose Error: ', err);
+});
+
+db.once('open', function () {
+    console.log('Mongoose connection successful.');
+});
