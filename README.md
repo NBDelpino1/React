@@ -12,7 +12,8 @@ In this activity, you'll create a new React-based rendition of the New York Time
 
 3. Using mongoose, then create an Article schema and model
 
-4. Articles should have each of the following fields:
+4. Articles shou
+ld have each of the following fields:
 
 	* `title` (Title of the stored article from nytimes.com)
 
